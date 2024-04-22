@@ -1,0 +1,25 @@
+#!/bin/bash
+
+#idée demander à l'utilisateur de créer son prore dico
+
+# tant que l'utilisateur veut on ajoute des mpots dans le dictionnaire
+
+
+
+
+touch dico_usr.txt
+
+dictionnaire_user="dico_usr.txt"
+
+while true; do
+	echo "entrer un mot"
+	read mot
+
+	if [ "$mot" == "exit" ]
+		then
+		break
+	fi
+
+	echo "$mot" >> "dico_usr.txt"
+
+done

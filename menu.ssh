@@ -1,0 +1,37 @@
+
+menu() {
+	echo "#################################################################################################"
+	echo "                                 	JEU DU PENDU :)"
+	echo "					______________"
+	echo "					|             |"
+	echo "					|	      |	"
+	echo "					|	      O "
+	echo "					|	     /|\\"
+	echo "					|	    / | \\"
+	echo "					|            / \\"
+	echo "					| 	    /	\\"
+	echo "#################################################################################################"
+	echo "BIENVENUE DANS LE JEU DU PENDU MERCI D'ENTRER LES INFORMATIONS NECESSAIRES POUR COMMENCER A JOUER"
+	sleep 4
+	parameters=0
+	difficulte=""
+	while test "$difficulte" != "f" && test "$difficulte" != "m" && test "$difficulte" != "d"	
+	do
+		read -p "entre la difficulté f pour facile, m pour moyen et d pour difficile (la difficulté change ton nombre de vie maximum et la durée du timer) " difficulte
+	done
+	mode=""
+	while test "$mode" != "ligne" && test "$mode" != "ordi"
+	do
+		read -p "entre le mode de jeu que tu désires, tape 'ligne' pour jouer contre ton ami sur le réseau utc ou tape 'ordi' pour jouer contre l'ordinateur " mode	
+	done
+	if test "$difficulte" = "f"
+	then
+		countdown 600
+	elif test "$difficulte" = "m" 
+	then
+		countdown 300
+	else
+	then
+		countdown 120
+
+}	

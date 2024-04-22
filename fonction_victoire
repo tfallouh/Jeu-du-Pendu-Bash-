@@ -1,0 +1,53 @@
+#!/bin/bash
+victoire () {
+
+    mot=$1
+    list_lettre=$2
+    nb_vies=$3
+    timer=$4
+
+        echo $2 >> miaou
+
+    ok=1 #vrai
+
+    for (( i=0; i<${#mot}; i++ ));do
+
+        ok_l=0
+	    for (( j=0; j<${#list_lettre}; j++ )); do	
+		    if [ "${mot:$i:1}" == "${list_lettre:$j:1}" ]; then 
+			    ok_l=1 
+                break
+		    fi
+	    done
+        if [ $ok_l == 0 ]
+        then
+            ok=0
+            break
+        fi
+    done
+
+
+    if [ "$ok" == "1" ] 
+    then
+	    nb_vies="10000000"
+    else
+
+
+
+	    if test $(("$timer")) -gt 0
+	    then
+		    nb_vies=$(( $nb_vies-1 ))
+	    fi
+
+	    if [ $(("$timer")) -le 0 ]
+	    then
+		    nb_vies=0 #fais gaffe ""
+	    fi
+    fi
+
+
+    echo "$nb_vies"
+}
+
+
+victoire $1 $2 $3 $4

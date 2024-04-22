@@ -1,0 +1,105 @@
+#! /bin/bash
+echo "#################################################################################################"
+echo "                                  JEU DU PENDU :)"
+echo "                                  ______________"
+echo "                                  |             |"
+echo "                                  |             | "
+echo "                                  |             O "
+echo "                                  |            /|\\"
+echo "                                  |           / | \\"
+echo "                                  |            / \\"
+echo "                                  |           /   \\"
+echo "#################################################################################################"
+echo "BIENVENUE DANS LE JEU DU PENDU MERCI D'ENTRER LES INFORMATIONS NECESSAIRES POUR COMMENCER A JOUER"
+sleep 0.4
+
+
+export bonnes_lettres="."
+export mauvaises_lettres="."
+
+
+
+parameters=0
+difficulte=""
+while test "$difficulte" != "f" && test "$difficulte" != "m" && test "$difficulte" != "d"
+do
+        read -p "entre la difficulté f pour facile, m pour moyen et d pour difficile (la difficulté change ton nombre de vie maximum et la durée du timer) " difficulte
+done
+mode=""
+while test "$mode" != "local" && test "$mode" != "ordi"
+do
+	read -p "entre le mode de jeu que tu désires, tape 'local' pour jouer contre ton ami ou tape 'ordi' pour jouer contre l'ordinateur " mode     
+done
+if test "$difficulte" = "f"
+then
+	timer=600
+	vie=10
+elif test "$difficulte" = "m"
+then
+	timer=300
+	vie=5
+else
+	timer=120
+	vie=1
+fi
+if test "$mode" = "ordi"
+then
+	word=$(./mot-aleatoire.sh)
+else
+	word=$(./mot-choisi.sh)
+fi
+start="$(( $(date '+%s') + $timer))"
+
+echo $word
+echo
+echo
+echo
+echo
+echo
+echo
+echo
+echo
+echo
+echo
+echo
+echo
+echo
+echo
+echo
+echo
+echo
+echo
+echo
+echo
+echo
+echo
+while test "$vie" -gt 0 && test "$vie" -lt 1000000
+do
+	time=$(( $start - $(date +%s) ))
+	printf '%s\r' "$(date -u -d "@$time" +%H:%M:%S)"
+	echo
+	echo
+	echo
+	echo
+	sleep 0.5
+	./afficher-lettres.sh "$word" "$bonnes_lettres"
+	echo
+	echo
+	echo
+	read -p  "          entrez une lettre ou un mot entier " input
+	source ./fonction_test_input_utilisateur.sh "$input"
+	
+
+#	./afficher-liste "$mauvaises_lettres"
+
+    echo $bonnes_lettres
+	
+	vie=$(./fonction_victoire "$word"  "$bonnes_lettres" "$vie" "$time")
+    echo "$vie"
+    echo "$time"
+	./affichpendu $vie
+	sleep 0.5
+done
+#variable global
+
+

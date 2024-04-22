@@ -1,0 +1,88 @@
+case $1 in
+	10)
+		echo
+	;;
+ 	9)
+		echo " |"
+		echo " |"
+		echo " |"
+		echo " |"
+		echo " |"
+	;;
+	8)
+		echo " ______"
+		echo " |"
+		echo " |"
+		echo " |"
+		echo " |"
+		echo " |"
+	;;
+	7)
+		echo " ______"
+		echo " |/"
+		echo " |"
+		echo " |"
+		echo " |"
+		echo " |"
+	;;
+	6)
+		echo " ______"
+		echo " |/"
+		echo " |"
+		echo " |"
+		echo " |"
+		echo "_|_"
+	;;
+	5)
+		echo " ______"
+		echo " |/  |"
+		echo " |"
+		echo " |"
+		echo " |"
+		echo "_|_"
+	;;
+	4)
+		echo " ______"
+		echo " |/  |"
+		echo " |   o"
+		echo " |"
+		echo " |"
+		echo "_|_"
+	;;
+	3)
+		echo " ______"
+		echo " |/  |"
+		echo " |   o"
+		echo " |   O"
+		echo " |"
+		echo "_|_"
+	;;
+	2)
+		echo " ______"
+		echo " |/  |"
+		echo " |  \o"
+		echo " |   O"
+		echo " |"
+		echo "_|_"
+	;;
+	1)
+		echo " ______"
+		echo " |/  |"
+		echo " |  \o/"
+		echo " |   O"
+		echo " |"
+		echo "_|_"
+	;;
+	0)
+		echo " ______"
+		echo " |/  |"
+		echo " |  \o/"
+		echo " |   O"
+		echo " |  / \\"
+		echo "_|_   "
+		echo
+		echo
+		echo "############################"
+		echo "    Vous avez perduuuu !"
+		echo "############################"
+esac
